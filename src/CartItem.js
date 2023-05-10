@@ -12,13 +12,13 @@ class CartItem extends React.Component {
             img: '',
         }
 
-        // this this.increaseQuantity = this.increaseQuantity.bind(this);
+        // this.increaseQuantity = this.increaseQuantity.bind(this);
     }
 
  
-
     // increaseQuantity () {
     increaseQuantity = () => {
+        
         console.log('this', this.state);
     }
 
@@ -43,6 +43,7 @@ class CartItem extends React.Component {
                             className="action-icons"
                             src="https://cdn-icons-png.flaticon.com/512/748/748113.png"
                             // onClick={this.increaseQuantity.bind(this)}
+                            onClick = {this.increaseQuantity}
                         />
                         <img
                             alt="decrease"
