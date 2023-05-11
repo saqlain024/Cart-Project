@@ -11,7 +11,7 @@ const CartItem = (props) => {
     }  = props;
 
     return (
-        <div className="cart-item">
+        <div className="cart-item glass-effect">
             <div className="left-block">
                 <img style={styles.image} src={product.img }/>
             </div>

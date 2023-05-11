@@ -120,13 +120,15 @@ class App extends React.Component {
         <Navbar 
           count = {this.getCartCount() }
         />
+        <div className="outer-container">
         <Cart 
           products = {products}
           onIncreaseQuantity= { this.handleIncreaseQuantity }
           onDecreaseQuantity= { this.handleDecreaseQuantity }
           onDeleteProduct= { this.handleDeleteProduct }
         />
-        <div style= {{ padding:10, fontSize: 22 }}>TOTAL: { this.getCartTotal() } </div>
+        <div  className="glass-effect-total" >TOTAL: { this.getCartTotal() } </div>
+      </div>
       </div>
     );
   }

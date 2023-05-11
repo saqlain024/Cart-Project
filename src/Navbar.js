@@ -30,7 +30,8 @@ const styles = {
     },
 
     cartIconContainer: {
-      position: 'relative'
+      position: 'relative',
+      marginRight:25
     },
 
     cartCount: {
