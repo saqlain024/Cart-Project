@@ -19,30 +19,56 @@ class App extends React.Component {
 
 
   componentDidMount () {
+    // firebase
+    //   .firestore()
+    //   .collection('products')
+    //   .get()                          /// we have to refresh  when data changes happen in firebase to be able to see on the page
+    //   .then( (snapshot) => {          
+    //     console.log(snapshot);
+
+    //     snapshot.docs.map((doc) => {
+    //       console.log( doc.data() );
+    //     })
+      
+    //     const products = snapshot.docs.map( (doc) => {
+    //       const data = doc.data();
+
+    //       data['id'] = doc.id;
+    //       return data;
+    //     })
+
+    //     this.setState({ 
+    //       products,
+    //       loading: false
+    //     })
+
+    //   })
+
+
     firebase
       .firestore()
       .collection('products')
-      .get()
-      .then( (snapshot) => {
-        console.log(snapshot);
-
-        snapshot.docs.map((doc) => {
-          console.log( doc.data() );
+      .onSnapshot( (snapshot) => {        // this will rendered automatically when data changes happen in firebase
+          console.log(snapshot);
+  
+          snapshot.docs.map((doc) => {
+            console.log( doc.data() );
+          })
+        
+          const products = snapshot.docs.map( (doc) => {
+            const data = doc.data();
+  
+            data['id'] = doc.id;
+            return data;
+          })
+  
+          this.setState({ 
+            products,
+            loading: false
+          })
+  
         })
-      
-        const products = snapshot.docs.map( (doc) => {
-          const data = doc.data();
 
-          data['id'] = doc.id
-          return data;
-        })
-
-        this.setState({ 
-          products,
-          loading: false
-        })
-
-      })
   }
 
   handleIncreaseQuantity = (product) => {
